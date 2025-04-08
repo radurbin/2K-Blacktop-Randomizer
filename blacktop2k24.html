@@ -105,7 +105,7 @@
     <h2>NBA 2K24 Blacktop Randomizer</h2>
 
     <div class="button-container">
-        <input type="button" onclick="window.location.href='https://radurbin.github.io/2K-Blacktop-Randomizer/blacktop2k24.html';" value="NBA 2K24">
+        <input type="button" onclick="window.location.href='https://radurbin.github.io/2K-Blacktop-Randomizer/home.html';" value="Home">
         <input type="button" onclick="window.location.href='https://radurbin.github.io/2K-Blacktop-Randomizer/blacktop2k25.html';" value="NBA 2K25">
     </div>
 
@@ -250,7 +250,7 @@
                 for (let i = 0; i < quantity && players.length > 0; i++) {
                     const randIndex = Math.floor(Math.random() * players.length);
                     const player = players.splice(randIndex, 1)[0];
-                    output += `${player["Player Name"]} - ${player["Position 1"]}${player["Position 2"] ? "/" + player["Position 2"] : ""} - ${player["Height"]} - ${getEra(player.Team)} ${player.Team}`;
+                    output += `<strong>${player["Player Name"]}</strong> - ${player["Position 1"]}${player["Position 2"] ? "/" + player["Position 2"] : ""} - ${player["Height"]} - ${getEra(player.Team)} ${player.Team}`;
                     if (showOverall) {
                         output += ` - Overall: ${player.Overall}`;
                     }
