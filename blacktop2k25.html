@@ -177,6 +177,11 @@
                 <input type="checkbox" id="includeSecondary" name="includeSecondary" checked>
             </div>
 
+            <div class="form-section">
+                <label for="addBronny">Add Bronny:</label>
+                <input type="checkbox" id="addBronny" name="addBronny">
+            </div>
+
             <div class="button-container">
                 <input type="button" onclick="randomize()" value="Randomize">
             </div>
@@ -226,6 +231,7 @@
             const maxHeight = document.getElementById("maxHeight").value;
             const showOverall = document.getElementById("showOverall").checked;
             const includeSecondary = document.getElementById("includeSecondary").checked;
+            const addBronny = document.getElementById("addBronny").checked;
 
             if (quantity > 0 && (PG || SG || SF || PF || C) && minOverall >= 60 && minOverall <= 99 && maxOverall >= 60 && maxOverall <= 99 && maxOverall >= minOverall && (cur || clas || all)) {
                 let players = [];
@@ -240,7 +246,8 @@
                                      (C && (player["Position 1"] === "C" || (includeSecondary && player["Position 2"] === "C")));
                     const overallMatch = player.Overall >= minOverall && player.Overall <= maxOverall;
                     const heightMatchCondition = heightMatch(player.Height, minHeight, maxHeight);
-                    if (eraMatch && posMatch && overallMatch && heightMatchCondition) {
+                    const addBronnyCondition = addBronny && (player["Player Name"] == "Bronny James");
+                    if ((eraMatch && posMatch && overallMatch && heightMatchCondition) || addBronnyCondition) {
                         players.push(player);
                     }
                 });
